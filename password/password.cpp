@@ -1,4 +1,4 @@
-// passman.cpp : This file contains the 'main' function. Program execution begins and ends there.
+ passman.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -10,13 +10,14 @@
 
 
 using namespace std;
+//defning functions
 int enterpass();
 unsigned long getmainpassword();
 int check(string pass, unsigned long mainpass);
 void addpass();
 void display();
 void seachpass();
-
+//struct for the pass words
 struct passlist
 {
     string pass;
@@ -24,14 +25,14 @@ struct passlist
     string website;
 };
 vector<passlist> aa;
-vector<passlist> listpass();
+
 int main()
 {
     int x = 0;
     string getmainpassword;
     int enter = 0;
 
-
+    //Home screen and options
     x = enterpass();
     while (x == 0) {
         cout << "\n\nEnter the number for requerd option \n\n";
@@ -59,7 +60,7 @@ int main()
 
 
 
-int enterpass() {
+int enterpass() {//entering passwork
     string pass;
 
     cout << "Enter password \n\n";
@@ -69,7 +70,7 @@ int enterpass() {
     return 0;
 }
 
-unsigned long getmainpassword() {
+unsigned long getmainpassword() {//gets password and password data
     int x = 0;
     int y = 0;
     unsigned long mainpass;
@@ -126,7 +127,7 @@ unsigned long getmainpassword() {
 
     return pass;
 }
-int check(string pass, unsigned long mainpass) {
+int check(string pass, unsigned long mainpass) {//check the password
     hash <string> hash;
     unsigned long passs = hash(pass);
     if (passs == mainpass) {
@@ -138,7 +139,7 @@ int check(string pass, unsigned long mainpass) {
     }
 
 }
-void addpass() {
+void addpass() {// adds and encryps the password basic encrypion 
     passlist a;
     int y = 0;
     cout << "Enter the website \n\n";
@@ -181,7 +182,7 @@ void addpass() {
     out.close();
 }
 
-void seachpass() {
+void seachpass() {//search of website
     string value;
     cout << "Enter search website\n\n";
     cin >> value;
@@ -201,7 +202,8 @@ void seachpass() {
   
 }
 
-void display() {
+void display() {//displays all password with data
+    
     for (int i = 0; i < aa.size(); i++)
     {   
         cout << "Username\n\n";
